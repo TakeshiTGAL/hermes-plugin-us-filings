@@ -1,0 +1,18 @@
+name: us-filings
+version: 0.1.0
+manifest_version: 2
+requires_hermes: ">=0.21.6"
+description: "US Filings lists recent SEC EDGAR filings for a ticker or CIK and locates one by accession number. It sends one morning message when a watched company files. Disclosure — HTTPS only to data.sec.gov and www.sec.gov, no API key, no proxy, no redirects; US_FILINGS_CONTACT is read with get_secret each call; add and remove use pre_tool_call, yolo and approvals off skip it if a person is present, and cron, hermes -q, webhook, or a separate process cannot add or remove even after always; hermes cron create --no-agent --script creates the job, empty stdout sends nothing, and the job, scripts/us-filings-watch.py, and plugin-data/us-filings/state.json stay after uninstall; tools are on every surface."
+author: TakeshiTGAL
+license: MIT
+homepage: https://github.com/TakeshiTGAL/hermes-plugin-us-filings
+platforms:
+  - linux
+  - macos
+python_dependencies: []
+provides_tools:
+  - us_filings_recent
+  - us_filings_locate
+  - us_filings_watch
+provides_hooks:
+  - pre_tool_call
